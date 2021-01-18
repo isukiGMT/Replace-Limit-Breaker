@@ -24,7 +24,7 @@ public class Weapons : MonoBehaviour
         Damage = _player.BaseDamage + DamageBonus;
         ///Hb.enabled = _player.Attacking;
     }
-    protected void OnCollisionStay(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Enemy") && _player.Attacking == true)
         {

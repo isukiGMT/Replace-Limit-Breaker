@@ -55,7 +55,7 @@ namespace PlayerSet
         private float LastTimeAttack = 0;
         private float MaxAttackDelay = 1.4f;
         private float MaxClick = 2;
-        public float StaminaRegenerateSpeed = 25;
+        public float StaminaRegenerateSpeed = 75;
         public float LastTimeLoseStamina;
         private float AttackSpeed = 0.75f;
         [HideInInspector] public float LV;
@@ -187,6 +187,7 @@ namespace PlayerSet
             else
             {
                 anim.SetFloat("InputZ", 1);
+                anim.SetFloat("InputX", 0);
             }
         }
         #endregion
@@ -230,7 +231,7 @@ namespace PlayerSet
         void InputDecider()
         {
             Speed = new Vector2(InputX, InputZ).sqrMagnitude;
-            if (Input.GetKey(KeyCode.LeftControl)) Run = true;
+            if (Input.GetKey(KeyCode.LeftControl) && Stamina >= 2) Run = true;
             else Run = false;
             if (Speed > allowRotation)
             {
@@ -309,7 +310,7 @@ namespace PlayerSet
         void Roll()
         {
 
-            if (isAttacked == false && _Roll == false && Input.GetKeyDown(KeyCode.Space) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") && CurrentHP > 0 && CurrentStates != A_Attack && CurrentStates != A_Attack2)
+            if (isAttacked == false && _Roll == false && Input.GetKeyDown(KeyCode.Space) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Roll") && CurrentHP > 0 && CurrentStates != A_Attack && CurrentStates != A_Attack2 && Stamina >= 10)
             {
                 if (ClosetEnemy != null)
                 {
@@ -467,7 +468,7 @@ namespace PlayerSet
             foreach (Enemy CurrentEnemy in AllEnemies)
             {
                 float DistanceToEnemy = Vector3.Distance(CurrentEnemy.transform.position, transform.position);
-                if (DistanceToEnemy <= 10 && !EnemiesInRange.Contains(CurrentEnemy))
+                if (DistanceToEnemy <= 10 && !EnemiesInRange.Contains(CurrentEnemy) && CurrentEnemy.GetComponent<Enemy>().EnemyHP > 0)
                 {
                     EnemiesInRange.Add(CurrentEnemy);
                     EnemyIndex++;

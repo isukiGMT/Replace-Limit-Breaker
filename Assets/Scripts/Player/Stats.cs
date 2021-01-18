@@ -23,8 +23,8 @@ namespace PlayerSet
             {
                 Player.CanChargeStamina = false;
             }
-            if (Player.CanChargeStamina == true && Player._Block == false && Time.time - Player.LastTimeLoseStamina >= 1f)
-                if (Player.Stamina + Player.StaminaRegenerateSpeed < Player.MaxStamina) Player.Stamina += Player.StaminaRegenerateSpeed * Time.deltaTime; else Player.Stamina = Player.MaxStamina;
+            if (Player._Block == false && Time.time - Player.LastTimeLoseStamina >= 1f)
+                if (Player.Stamina + Player.StaminaRegenerateSpeed * Time.deltaTime < Player.MaxStamina) Player.Stamina += Player.StaminaRegenerateSpeed * Time.deltaTime; else Player.Stamina = Player.MaxStamina;
         }
         public void DefaultStats(Player Player)
         {

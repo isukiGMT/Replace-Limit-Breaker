@@ -35,9 +35,13 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void Working()
     {
-        if (Active == false) inFov(transform, Player.transform, MaxAngle, MaxRadius);
+        if (Active == false && EnemyHP > 0) inFov(transform, Player.transform, MaxAngle, MaxRadius);
         Distance = Vector3.Distance(Player.transform.position,this.transform.position);
         if (CanAttack == false && Time.time - LastTimeAttack >= AttackSpeed && Stamina >= StaminaMin) CanAttack = true;
+        if (EnemyHP <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
     public void inFov(Transform checkingObject, Transform target, float maxAngle, float maxRadius)
     {
@@ -86,8 +90,8 @@ public class Enemy : MonoBehaviour
     {
         if (GetHit == false)
         {
-            GetHit = true;
             EnemyHP -= Value;
+            GetHit = true;
         }
     }
 }

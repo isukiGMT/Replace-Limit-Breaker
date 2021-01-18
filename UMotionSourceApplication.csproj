@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{74AFEC5E-95FB-2CE2-2FF4-677F9615145A}</ProjectGuid>
+    <ProjectGuid>{C8DB03DD-424C-F55D-2474-BBEA87AFAFED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UMotionSourceApplication</AssemblyName>
@@ -297,37 +297,37 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="ConditionalExpression">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/PlayMaker/ConditionalExpression.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/PlayMaker/ConditionalExpression.dll</HintPath>
     </Reference>
     <Reference Include="ConditionalExpressionEditor">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/PlayMaker/Editor/ConditionalExpressionEditor.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/PlayMaker/Editor/ConditionalExpressionEditor.dll</HintPath>
     </Reference>
     <Reference Include="PlayMakerEditor">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/PlayMaker/Editor/PlayMakerEditor.dll</HintPath>
     </Reference>
     <Reference Include="PlayMakerEditorResources">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/PlayMaker/Editor/PlayMakerEditorResources.dll</HintPath>
     </Reference>
     <Reference Include="PlayMaker">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/Plugins/PlayMaker/PlayMaker.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/Plugins/PlayMaker/PlayMaker.dll</HintPath>
     </Reference>
     <Reference Include="UMotionApplication">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/UMotionEditor/Plugins/Application/UMotionApplication.dll</HintPath>
     </Reference>
     <Reference Include="UMotionEditor">
-      <HintPath>G:/My Dream and Determination/LMB/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Assets/UMotionEditor/Plugins/Editor/UMotionEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
-      <HintPath>G:/My Dream and Determination/LMB/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>G:/My Dream and Determination/LMB/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>G:/My Dream and Determination/LMB/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>G:/My Dream and Determination/LMB/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>G:/My Dream and Determination/GitUploads/Replace-Limit-Breaker/Library/PackageCache/com.unity.analytics@3.2.3/Editor/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
