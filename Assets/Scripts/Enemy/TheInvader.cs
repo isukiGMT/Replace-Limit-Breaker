@@ -17,58 +17,41 @@ public class TheInvader : Enemy
     {
         anim = GetComponent<Animator>();
         Introduction();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
         Working();
+        float Distance = Vector3.Distance(Player.transform.position,transform.position);
         if (Active == true && GetHit == false)
-        {
-            if (MustDecide == true)
-            {
-               A = Random.Range(1, 4);
-            }
-            else
-            {
-                if (Time.time - LastTimeDecide >= DecideTime)
-                {
-                    MustDecide = true;
-                }
-            }
-            if (A == 1 || A == 2 || A == 3)
-            {
-                MustDecide = false;
-                if (Distance <= 20 && Distance >= 3)
+        { 
+                if (Distance <= 30 && Distance > 3)
                 {
                     MoveTowardsPlayer();
-                    ChangeAnimationStates(Run);
+                    ChangeAnimationStates("Run");
                 }
                 else if (Distance <= 3)
                 {
-                    StopMoving();
-                    Debug.Log("Attack");
-                    LastTimeDecide = Time.time;
-                    A = 5;
+                    if (CanAttack == true)
+                    {
+                        anim.SetFloat("RandomShit",0);
+                        ChangeAnimationStates("Attack");
+                    }
+                    if (Attacking == false) LookAtPlayer();
+                    else StopMoving();
                 }
-            }
-            else if (A == 4)
-            {
-                A = 5;
-                MustDecide = false;
-                ChangeAnimationStates(Idle);
-                LastTimeDecide = Time.time;
-            }
         }
-        else
+        else if (Active == false)
         {
             ChangeAnimationStates(Idle);
         }
-        if (GetHit == true)
+        else if (GetHit == true)
         {
             ChangeAnimationStates("Hit");
-            GetHit = false;
         }
+
     } 
       public void StartAttack (int gabeo)
     {
@@ -77,5 +60,15 @@ public class TheInvader : Enemy
         {
             Attacking = true;
         }     
+    }
+    private IEnumerator LoadAttack()
+    {
+        CanAttack = false;
+        yield return new WaitForSeconds(1);
+        CanAttack = true;
+    }
+    public void EndAttack()
+    {
+        ChangeAnimationStates("Idle");
     }
  }

@@ -473,7 +473,7 @@ namespace PlayerSet
                     EnemiesInRange.Add(CurrentEnemy);
                     EnemyIndex++;
                 }
-                else if (DistanceToEnemy > 10 && EnemiesInRange.Contains(CurrentEnemy))
+                else if (DistanceToEnemy > 10 && EnemiesInRange.Contains(CurrentEnemy) || CurrentEnemy.GetComponent<Enemy>().EnemyHP <= 0)
                 {
                     EnemiesInRange.Remove(CurrentEnemy);
                     EnemyIndex--;
@@ -498,24 +498,36 @@ namespace PlayerSet
                 }
                 else
                 {
-                    Target = EnemiesInRange[TargetCode].gameObject;
-                    Vector3 Dir = new Vector3(Target.transform.position.x,transform.position.y,Target.transform.position.z);
-                    transform.LookAt(Dir);
-                    float Distance = Vector3.Distance(Target.transform.position,transform.position);
-                    if (EnemyIndex > 1)
+                    if (EnemyIndex >= 1)
                     {
-                        if (Input.GetKeyDown(KeyCode.Tab)) {
-                            if (TargetCode == EnemyIndex - 1)
+                        Target = EnemiesInRange[TargetCode].gameObject;
+                        Vector3 Dir = new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z);
+                        transform.LookAt(Dir);
+                        float Distance = Vector3.Distance(Target.transform.position, transform.position);
+                        if (EnemyIndex > 1)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Tab))
                             {
-                                TargetCode = 0;
-                            }
-                            else
-                            {
-                                TargetCode++;
+                                if (TargetCode == EnemyIndex - 1)
+                                {
+                                    TargetCode = 0;
+                                }
+                                else
+                                {
+                                    TargetCode++;
+                                }
                             }
                         }
+                        if (Distance > 10 || Target.GetComponent<Enemy>().EnemyHP <= 0 || Target == null)
+                        {
+                            LockTarget = false;
+                            EnemiesInRange.Clear();
+                            EnemyIndex = 0;
+                            Target = null;
+                            FirstLock = true;
+                        }
                     }
-                    if (Distance > 10 || Target.GetComponent<Enemy>().EnemyHP <= 0 || Target == null) 
+                    if (Input.GetKeyDown(KeyCode.Q) && CurrentHP > 0 && Target != null)
                     {
                         LockTarget = false;
                         EnemiesInRange.Clear();
@@ -523,14 +535,6 @@ namespace PlayerSet
                         Target = null;
                         FirstLock = true;
                     }
-                }
-                if (Input.GetKeyDown(KeyCode.Q) && CurrentHP > 0 && Target != null)
-                {
-                    LockTarget = false;
-                    EnemiesInRange.Clear();
-                    EnemyIndex = 0;
-                    Target = null;
-                    FirstLock = true;
                 }
             }
         }

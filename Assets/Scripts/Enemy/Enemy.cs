@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public float MaxRadius;
     public bool Active;
     private float heightMultiplayer = 0.5f;
-    private GameObject Player;
+    protected GameObject Player;
     public float Speed;
     public float Distance;
     private NavMeshAgent nav;
@@ -68,6 +68,11 @@ public class Enemy : MonoBehaviour
     }
     protected virtual void StopMoving()
     {
+        nav.SetDestination(transform.position);
+    }
+    protected virtual void LookAtPlayer()
+    {
+        nav.SetDestination(Player.transform.position);
         nav.speed = 0;
     }
     protected void ChangeAnimationStates(string Animation_Name)
